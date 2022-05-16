@@ -64,21 +64,29 @@ body {
 }
 .controls {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.2rem;
   grid-area: controls;
 }
+
 .control {
   width: 2rem;
   height: 2rem;
-  border-radius: 1rem;
-  border: 0.2rem solid rgb(189, 154, 218);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.control-child {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.5rem;
+  border: 0.2rem solid rgb(189, 154, 218);
   transition: 0.5s;
 }
-.control:hover {
+.control:hover .control-child {
   background-color: rgb(73, 72, 72);
 }
-.control:hover:active {
+.control:hover:active .control-child {
   background-color: rgb(255, 255, 255);
 }
 
@@ -106,11 +114,11 @@ body {
 }
 
 /* checked for labels */
-#rbtn1:checked ~ .controls .label1,
-#rbtn2:checked ~ .controls .label2,
-#rbtn3:checked ~ .controls .label3,
-#rbtn4:checked ~ .controls .label4,
-#rbtn5:checked ~ .controls .label5 {
+#rbtn1:checked ~ .controls .label1 .control-child,
+#rbtn2:checked ~ .controls .label2 .control-child,
+#rbtn3:checked ~ .controls .label3 .control-child,
+#rbtn4:checked ~ .controls .label4 .control-child,
+#rbtn5:checked ~ .controls .label5 .control-child {
   background-color: rgb(189, 154, 218);
 }
 
