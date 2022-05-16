@@ -8,28 +8,63 @@ body {
   text-align: center;
 }
 .container {
-  margin: 50px auto;
+  margin: 2rem auto;
+  width: 50vw;
+  background-color: blueviolet;
+  padding: 2rem;
+  display: grid;
+  align-items: center;
+  grid-template-areas:
+    "slider slider slider"
+    "description description controls";
+}
+.container input {
+  display: none;
 }
 .slider-container {
+  grid-area: slider;
   background-color: aqua;
-  width: 70vw;
+  width: 40vw;
   height: 70vh;
-  /* display: flex; */
   overflow: hidden;
   margin: auto;
   margin-bottom: 1rem;
-  border-radius: 5rem;
-  padding: 2rem;
+  border-radius: 2rem;
+}
+.slider-inner-contaier {
+  width: 500%;
+  height: 70vh;
+  display: flex;
 }
 .slide {
-  /* width: 100%; */
+  width: 20%;
+  height: 100%;
 }
 .slide img {
-  /* width: 100%; */
+  width: 100%;
+  height: 100%;
 }
+.description {
+  text-align: justify;
+  grid-area: description;
+  background-color: azure;
+  height: 1rem;
+  overflow: hidden;
+}
+.description-inner {
+  height: 5rem;
+
+  /* display: flex; */
+  /* background-color: azure;
+  height: 1rem; */
+}
+/* .description-inner p {
+  display: block;
+} */
 .controls {
   display: flex;
   gap: 0.5rem;
+  grid-area: controls;
 }
 .control {
   width: 2rem;
@@ -37,7 +72,53 @@ body {
   border-radius: 1rem;
   border: 0.2rem solid aqua;
   cursor: pointer;
+  transition: 0.5s;
 }
 .control:hover {
+  background-color: black;
+}
+
+/* checked for slides */
+#rbtn1:checked ~ .slider-container .slider-inner-contaier {
+  margin-left: 0;
+}
+#rbtn2:checked ~ .slider-container .slider-inner-contaier {
+  margin-left: -100%;
+}
+
+#rbtn3:checked ~ .slider-container .slider-inner-contaier {
+  margin-left: -200%;
+}
+#rbtn4:checked ~ .slider-container .slider-inner-contaier {
+  margin-left: -300%;
+}
+#rbtn5:checked ~ .slider-container .slider-inner-contaier {
+  margin-left: -400%;
+}
+
+/* checked for text */
+#rbtn1:checked ~ .description .description-inner {
+  margin-top: 0;
+}
+#rbtn2:checked ~ .description .description-inner {
+  margin-top: -1.2rem;
+}
+
+#rbtn3:checked ~ .description .description-inner {
+  margin-left: -2.5rem;
+}
+#rbtn4:checked ~ .description .description-inner {
+  margin-left: -4rem;
+}
+#rbtn5:checked ~ .description .description-inner {
+  margin-left: -6rem;
+}
+
+/* checked for labels */
+#rbtn1:checked ~ .controls .label1,
+#rbtn2:checked ~ .controls .label2,
+#rbtn3:checked ~ .controls .label3,
+#rbtn4:checked ~ .controls .label4,
+#rbtn5:checked ~ .controls .label5 {
   background-color: aqua;
 }
