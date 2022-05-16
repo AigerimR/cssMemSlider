@@ -4,26 +4,27 @@
   margin: 0;
 }
 body {
-  background-color: rgb(248, 248, 248);
+  background-color: rgb(217, 213, 219);
   text-align: center;
 }
 .container {
+  border-radius: 2rem;
   margin: 2rem auto;
   width: 50vw;
-  background-color: blueviolet;
-  padding: 2rem;
+  background-color: rgb(157, 151, 162);
+  padding: 2rem 4.5rem;
   display: grid;
   align-items: center;
   grid-template-areas:
     "slider slider slider"
     "description description controls";
+  column-gap: 1rem;
 }
 .container input {
   display: none;
 }
 .slider-container {
   grid-area: slider;
-  background-color: aqua;
   width: 40vw;
   height: 70vh;
   overflow: hidden;
@@ -35,6 +36,7 @@ body {
   width: 500%;
   height: 70vh;
   display: flex;
+  transition: 1s ease-in-out;
 }
 .slide {
   width: 20%;
@@ -47,20 +49,19 @@ body {
 .description {
   text-align: justify;
   grid-area: description;
-  background-color: azure;
-  height: 1rem;
+  height: 2rem;
   overflow: hidden;
 }
-.description-inner {
-  height: 5rem;
-
-  /* display: flex; */
-  /* background-color: azure;
-  height: 1rem; */
+.description p {
+  width: 100%;
+  line-height: 1rem;
 }
-/* .description-inner p {
-  display: block;
-} */
+.description-inner {
+  width: 500%;
+  display: flex;
+  align-items: center;
+  transition: 1s ease-in-out;
+}
 .controls {
   display: flex;
   gap: 0.5rem;
@@ -70,48 +71,38 @@ body {
   width: 2rem;
   height: 2rem;
   border-radius: 1rem;
-  border: 0.2rem solid aqua;
+  border: 0.2rem solid rgb(189, 154, 218);
   cursor: pointer;
   transition: 0.5s;
 }
 .control:hover {
-  background-color: black;
+  background-color: rgb(73, 72, 72);
+}
+.control:hover:active {
+  background-color: rgb(255, 255, 255);
 }
 
-/* checked for slides */
-#rbtn1:checked ~ .slider-container .slider-inner-contaier {
+/* checked for slides & text*/
+#rbtn1:checked ~ .slider-container .slider-inner-contaier,
+#rbtn1:checked ~ .description .description-inner {
   margin-left: 0;
 }
-#rbtn2:checked ~ .slider-container .slider-inner-contaier {
+#rbtn2:checked ~ .slider-container .slider-inner-contaier,
+#rbtn2:checked ~ .description .description-inner {
   margin-left: -100%;
 }
 
-#rbtn3:checked ~ .slider-container .slider-inner-contaier {
+#rbtn3:checked ~ .slider-container .slider-inner-contaier,
+#rbtn3:checked ~ .description .description-inner {
   margin-left: -200%;
 }
-#rbtn4:checked ~ .slider-container .slider-inner-contaier {
+#rbtn4:checked ~ .slider-container .slider-inner-contaier,
+#rbtn4:checked ~ .description .description-inner {
   margin-left: -300%;
 }
-#rbtn5:checked ~ .slider-container .slider-inner-contaier {
-  margin-left: -400%;
-}
-
-/* checked for text */
-#rbtn1:checked ~ .description .description-inner {
-  margin-top: 0;
-}
-#rbtn2:checked ~ .description .description-inner {
-  margin-top: -1.2rem;
-}
-
-#rbtn3:checked ~ .description .description-inner {
-  margin-left: -2.5rem;
-}
-#rbtn4:checked ~ .description .description-inner {
-  margin-left: -4rem;
-}
+#rbtn5:checked ~ .slider-container .slider-inner-contaier,
 #rbtn5:checked ~ .description .description-inner {
-  margin-left: -6rem;
+  margin-left: -400%;
 }
 
 /* checked for labels */
@@ -120,5 +111,5 @@ body {
 #rbtn3:checked ~ .controls .label3,
 #rbtn4:checked ~ .controls .label4,
 #rbtn5:checked ~ .controls .label5 {
-  background-color: aqua;
+  background-color: rgb(189, 154, 218);
 }
