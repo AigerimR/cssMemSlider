@@ -113,3 +113,24 @@ body {
 #rbtn5:checked ~ .controls .label5 {
   background-color: rgb(189, 154, 218);
 }
+
+@media (max-width: 414px) {
+  .container {
+    width: 100vw;
+    padding: 1rem;
+    margin: 2rem 0;
+    grid-template-areas:
+      "slider"
+      "controls"
+      "description";
+    row-gap: 1rem;
+    justify-items: center;
+  }
+  .slider-container {
+    width: 90vw;
+    height: 40vh;
+  }
+  .slider-inner-contaier {
+    height: 40vh;
+  }
+}
